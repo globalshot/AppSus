@@ -8,8 +8,7 @@ export default {
         </section>
 
         <section class="note-list">
-            <h1>Keep notes</h1>
-            <div v-for="note in test">
+            <div v-for="note in test" :key="note.id">
                 <NotePreview :note="note"/>
             </div>
             <!-- <pre>{{ test }}</pre> -->
@@ -17,11 +16,28 @@ export default {
     `,
     data(){
         return{
-            test: noteService.test()
+            test: [],
+            // notes: null
         }
     },
     components:{
         noteService,
         NotePreview,
-    }
+    },
+    created(){
+        noteService.query()
+            .then(notes => {this.test = notes})
+    },
+    computed: {
+        notes() {
+          return noteService.query()
+        }
+      }
+    // beforeRouteEnter(to, from, next) {
+    //     noteService.query()
+    //       .then(notes => next(vm => {
+    //         vm.test = notes
+    //       }))
+    //   },
+    
 }

@@ -4,8 +4,7 @@ export default {
     template:`
         <div>
             <h2>{{ info.title }}</h2>
-            <p>some img soon</p>
-            <!-- <img src="info.url"/> -->
+            <img :src='info.url'/>
         </div>
     `,
     computed: {
