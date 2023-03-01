@@ -50,3 +50,79 @@ function query(criteria = { status: 'inbox'}) {
        })
 }
 
+
+function get(emailId) {
+    return storageService.get(EMAIL_KEY, emailId)
+}
+
+function remove(emailId) {
+    return storageService.remove(EMAIL_KEY, emailId)
+}
+
+function save(email) {
+    if (email.id) {
+        return storageService.put(EMAIL_KEY, email)
+    } else {
+        return storageService.post(EMAIL_KEY, email)
+    }
+}
+
+function getNextEmailId(emailId){
+    return storageService.query(EMAIL_KEY)
+    .then(emails => {
+        var idx = emails.findIndex(email => email.id === emailId)
+        if (idx === emails.length - 1) idx = -1
+        return emails[idx + 1].id
+    })
+    
+}
+
+function getPrevEmailId(emailId) {
+    return storageService.query(EMAIL_KEY)
+    .then(emails => {
+        var idx = emails.findIndex(email => email.id === emailId)
+        if (idx === 0) idx = emails.length
+        return emails[idx - 1].id
+    })
+
+}
+
+function getEmptyEmailToSend(subject = '', body = '', to = '', sentAt = null) {
+    return {
+        id: '',
+        subject,
+        body,
+        isRead: true,
+        isStared: false,
+        sentAt,
+        removedAt: null,
+        from: gLoggedinUser.email,
+        to
+    }
+}
+
+function getLoggedinUser() {
+    return gLoggedinUser
+}
+
+function _createEmails() {
+    let emails = utilSevice.loadFromStorage(EMAIL_KEY)
+    if (!emails || !emails.length) {
+        _createDemoEmails()
+    }
+}
+
+function _createDemoEmails() {
+    var DEMO_EMAILS = [];
+    var length = 40;
+
+    for (var i=0; i < length; i++) {
+        DEMO_EMAILS.push(_generateEmailData());
+    }
+
+    utilSevice.saveToStorage(EMAIL_KEY, DEMO_EMAILS)
+}
+
+function _generateEmailData() {
+    
+}
