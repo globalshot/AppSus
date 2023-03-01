@@ -7,8 +7,8 @@ export default {
             <router-link to="/note/add">Make new note</router-link>
         </section>
 
-        <section class="note-list">
-            <div v-for="note in test" :key="note.id">
+        <section class="note-list"><!--supopse to be NodeList and not just jump to preview-->
+            <div v-for="note in notes" :key="note.id">
                 <NotePreview :note="note"/>
             </div>
             <!-- <pre>{{ test }}</pre> -->
@@ -16,8 +16,8 @@ export default {
     `,
     data(){
         return{
-            test: [],
-            // notes: null
+            // test: [],
+            notes: [],
         }
     },
     components:{
@@ -25,14 +25,22 @@ export default {
         NotePreview,
     },
     created(){
-        noteService.query()
-            .then(notes => {this.test = notes})
+        // noteService.query()
+        //     .then(notes => this.test = notes)
+        noteService.query().then((notes) => {
+            this.notes = notes;})
     },
     computed: {
         notes() {
           return noteService.query()
         }
-      }
+      },
+    watch: {
+        notes(newNotes) {
+          // the notes property has been updated, re-render the component
+          this.$forceUpdate();
+        },
+    }
     // beforeRouteEnter(to, from, next) {
     //     noteService.query()
     //       .then(notes => next(vm => {
