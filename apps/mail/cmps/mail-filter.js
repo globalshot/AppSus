@@ -41,7 +41,7 @@ export function MailFilter({ onChangeFilter }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mail-filter flex justify-center align-center">
+    `<form onSubmit={handleSubmit} className="mail-filter flex justify-center align-center">
       <input placeholder="Search" type="text" value={searchTerm} onChange={handleSearchChange} />
       <select onChange={handleReadChange}>
         <option value={''}>All</option>
@@ -49,6 +49,6 @@ export function MailFilter({ onChangeFilter }) {
         <option value={'unread'}>Unread</option>
         <option value={'starred'}>Starred</option>
       </select>
-    </form>
+    </form>`
   )
 }

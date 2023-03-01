@@ -31,7 +31,7 @@ const routerOptions = {
 		{
 			path: '/note/add',
 			component: NoteAdd,
-		}
+		},
 		// {
 		// 	path: 'mail/index',
 		// 	component: MailIndex

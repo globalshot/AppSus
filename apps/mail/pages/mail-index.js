@@ -5,7 +5,7 @@ import { MailFilter } from '../cmps/mail-filter.js';
 import { MailList } from '../cmps/mail-list.js';
 import { MailFolderList } from '../cmps/mail-folder-list.js'
 import { showSuccessMsg } from "../../../services/event-bus.service.js"
-import { mailService } from './../services/mail.service.js';
+import { mailService } from '../services/mail-service.js';
 
 export function MailIndex() {
     const [criteria, setCriteria] = useState({ status: 'inbox' })
@@ -55,7 +55,7 @@ export function MailIndex() {
     }
 
     return (
-        <section className="mail-index full main-layout">
+    `<section className="mail-index full main-layout">
             <div className="mail-toolbar-container">
                 <MailFilter onChangeFilter={onChangeFilter} />
             </div>
@@ -64,6 +64,6 @@ export function MailIndex() {
                 <MailList emails={emails} onToggleMailProp={onToggleMailProp} />
                 <Outlet />
             </section>
-        </section>
+        </section>`
     )
 }
