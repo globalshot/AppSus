@@ -1,7 +1,7 @@
 export default {
 	template: `
         <section class="home-page">
-            <h1>Home sweet home</h1>
+            <h1>Home mail</h1>
         </section>
     `,
 }
