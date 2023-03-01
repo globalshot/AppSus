@@ -1,15 +1,17 @@
-import { storageService } from "..../services/async-storage.service.js"
+import { storageService } from '../../../services/async-storage.service.js'
+import { utilService } from '../../../services/util.service.js'
 
 const NOTE_KEY = 'noteDB'
 
-_tester()//remove after making normal data base
-_createNotes()
+// _tester()//remove after making normal data base
+// _createNotes()
 
-export const notesService = {
+export const noteService = {
     query,
     get,
     remove,
     save,
+    test,//to remove after i make normal
     
 }
 
@@ -39,14 +41,14 @@ function save(note) {//update or save
     }
 }
 
-function _createNotes() {
-    let notes = utilService.loadFromStorage(NOTE_KEY)
-    if (!notes || !notes.length) {
-    utilService.saveToStorage(NOTE_KEY, notes)
-  }
-}
+// function _createNotes() {
+//     let notes = utilService.loadFromStorage(NOTE_KEY)
+//     if (!notes || !notes.length) {
+//     utilService.saveToStorage(NOTE_KEY, notes)
+//   }
+// }
 
-function _tester(){
+function test(){
     const notes = [ 
         { 
           id: 'n101', 
@@ -85,5 +87,6 @@ function _tester(){
           } 
         } 
       ]
+      return notes
 }
 
