@@ -21,11 +21,14 @@ div.note-card{
 }
 
 div.card-options button{
-    border-radius: 50%;
     border: 1px solid var(--clr3);
     margin-inline-end: 3px;
     min-height: 20px;
     min-width: 20px;
+}
+
+button.card-colors{
+    border-radius: 50%;
 }
 
 button.pinned{

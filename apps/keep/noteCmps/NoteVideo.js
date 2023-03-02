@@ -3,7 +3,10 @@ export default {
     props: ['info'],
     template:`
         <div>
-            <p>havent wrote it yet</p>
+            <h2>{{ info.title }}</h2>
+            <video controls>
+                <source :src="info.url" type="video/mp4">
+            </video>
         </div>
     `,
     computed: {

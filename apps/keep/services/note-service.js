@@ -11,7 +11,7 @@ export const noteService = {
     get,
     remove,
     save,
-    test,//to remove after i make normal
+    forcePush,
     
 }
 
@@ -35,6 +35,13 @@ function save(note) {//update or save
     } else {
         return storageService.post(NOTE_KEY, note)
     }
+}
+
+function forcePush(note) {//still tested
+    let newNote = JSON.parse(JSON.stringify(note))
+    newNote.id = null
+    noteService.save(newNote)
+      .then(this.notes.push(newNote))
 }
 
 // function _createNotes() {

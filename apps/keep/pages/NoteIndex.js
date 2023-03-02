@@ -15,6 +15,8 @@ export default {
                 :notes="filteredNotes"
                 @done="todoDone"
                 @pin="pinned"
+                @colorChange="colorChange"
+                @dupe="dupeCard"
                 /><!--:notes="filteredNotes"-->
             <!-- <pre>{{ test }}</pre> -->
         </section>
@@ -36,6 +38,17 @@ export default {
         pinned(note){
             note.isPinned = !note.isPinned
             noteService.save(note)
+        },
+        colorChange(note, color){
+            note.style.backgroundColor = color
+            noteService.save(note)
+        },
+        dupeCard(note){
+            let newNote = JSON.parse(JSON.stringify(note))
+            newNote.id = null
+            noteService.save(newNote)
+                .then(this.notes.push(newNote))
+            
         }
     },
     components:{

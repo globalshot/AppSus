@@ -1,6 +1,7 @@
 import NoteImg from '../noteCmps/NoteImg.js'
 import NoteTodos from '../noteCmps/NoteTodos.js'
 import NoteTxt from '../noteCmps/NoteTxt.js'
+import NoteVideo from '../noteCmps/NoteVideo.js'
 
 export default {
     props: ['note'],
@@ -26,5 +27,6 @@ export default {
         NoteImg,
         NoteTodos,
         NoteTxt,
+        NoteVideo,
     }
 }
