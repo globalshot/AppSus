@@ -39,9 +39,14 @@ function save(note) {//update or save
 
 function forcePush(note) {//still tested
     let newNote = JSON.parse(JSON.stringify(note))
-    newNote.id = null
-    noteService.save(newNote)
-      .then(this.notes.push(newNote))
+    newNote.id = utilService.makeId(6)
+    return storageService.query(NOTE_KEY)
+      .then(notes => {
+        let idx = notes.findIndex(item => item.id === note.id)
+        notes.splice(idx+1, 0, newNote)
+        storageService.fullSave(NOTE_KEY, notes)
+      })
+    
 }
 
 // function _createNotes() {

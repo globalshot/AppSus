@@ -4,6 +4,7 @@ export const storageService = {
     post,
     put,
     remove,
+    fullSave,
 }
 
 function query(entityType, delay = 500) {
@@ -44,6 +45,12 @@ function remove(entityType, entityId) {
         entities.splice(idx, 1)
         _save(entityType, entities)
     })
+}
+
+//custom function
+
+function fullSave(entityType, entities) {
+    _save(entityType, entities)
 }
 
 // Private functions

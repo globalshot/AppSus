@@ -44,11 +44,9 @@ export default {
             noteService.save(note)
         },
         dupeCard(note){
-            let newNote = JSON.parse(JSON.stringify(note))
-            newNote.id = null
-            noteService.save(newNote)
-                .then(this.notes.push(newNote))
-            
+            noteService.forcePush(note)
+            .then(ah => noteService.query().then((notes) => {
+                this.notes = notes;}))
         }
     },
     components:{
