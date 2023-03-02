@@ -38,7 +38,7 @@ export default {//idea, when he makes the note, you can preview it to him
         save(){
             let note = {}
             note.type = this.type
-            note.style = {backgroundColor: 'white'}
+            note.style = {backgroundColor: 'grey'}
             
             if (this.type === 'NoteTxt') note.info = {txt: this.info}
             else{

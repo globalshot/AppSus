@@ -24,8 +24,10 @@ export default {
         passDone(todo, note) {
             this.$emit('done', todo, note)
         },
-        selectColor(color, note) {
+        selectColor(color, note) {//make it be shown only after the color choose selected
             note.style.backgroundColor = color
+            // console.log(event.pageX);
+            // console.log(event.pageY);
           }
     },
     components: {
