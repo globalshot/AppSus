@@ -1,0 +1,19 @@
+
+
+li.google-books{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid grey;
+    border-radius: 16px;
+    width: 400px;
+    padding-inline-start: 3px;
+}
+
+li.google-books button{
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+li.google-books button:hover{
+    cursor: pointer;
+}

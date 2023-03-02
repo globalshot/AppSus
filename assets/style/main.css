@@ -16,6 +16,18 @@
 /* Note Components */
 @import 'apps/note/cmps/NoteList.css';
 
+/* Book Components */
+@import 'apps/book/base/base.css';
+
+
+@import 'apps/book/cmps/BookDetails.css';
+@import 'apps/book/cmps/BookList.css';
+
+@import 'apps/book/pages/AboutPage.css';
+@import 'apps/book/pages/BookAdd.css';
+@import 'apps/book/pages/BookDetails.css';
+@import 'apps/book/pages/BookIndex.css';
+
 /* Apps */
 @import 'apps/mail/EmailIndex.css';
 @import 'apps/note/NoteIndex.css';

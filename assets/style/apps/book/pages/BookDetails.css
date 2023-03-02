@@ -1,0 +1,13 @@
+
+section.review-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    /* background-color: grey; */
+    margin: 20px 0px;
+    gap: 10px;
+}
+section.review-list div.review-card{
+    display: grid;
+    background-color: grey;
+    /* margin: 20px 0px; */
+}

@@ -16,6 +16,23 @@ function createEventEmitter(defaultHandler = null){
 }
 export const eventBus = createEventEmitter(() => console.log('No handler associated with this event...'))
 
+
+function on(eventName, listener) {
+    const callListener = ({ detail }) => {
+        listener(detail)
+    }
+    window.addEventListener(eventName, callListener)
+    // Returning the unsubscribe function:
+    return () => {
+        window.removeEventListener(eventName, callListener)
+    }
+}
+
+function emit(eventName, data) {
+    window.dispatchEvent(new CustomEvent(eventName, { detail: data }))
+}
+
+export const eventBusService = { on, emit }
 // const map = {
 //     'user-msg': [func1, func2],
 //     'test-event': [func3],
