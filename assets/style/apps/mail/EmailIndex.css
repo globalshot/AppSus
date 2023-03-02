@@ -1,0 +1,122 @@
+.main-container {
+    display: flex;
+    height: 82vh;
+    margin-block-start: 10px;
+    padding: 20px;
+    background-color: #e0dfe2bd;
+  }
+  
+  button {
+    border-radius: 10px;
+    border: none;
+  }
+
+  button:hover {
+  background-color: rgb(88, 201, 58);
+  }
+  
+  /**SIDE BAR */
+  .main-container .side-bar-conatiner {
+    border: 2px solid rgb(69, 208, 59);
+    width: 10%;
+    border-radius: 12px;
+  }
+  
+  .main-container .side-bar-conatiner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding: 5px;
+  }
+  
+  .main-container .side-bar-conatiner ul li {
+    border: 1px solid rgb(69, 208, 59);
+    text-align: left;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    margin-block-start: 1.5vh;
+  }
+  
+  .main-container .side-bar-conatiner ul li:hover {
+    background-color: rgb(88, 201, 58);
+    cursor: pointer;
+  }
+  
+  /**MAILS */
+  .main-container .mails-conatiner {
+    border: 2px solid rgb(88, 201, 58);
+    width: 85%;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  
+  .main-container .mails-conatiner .nav-bar {
+    border: 1px solid rgb(88, 201, 58);
+    margin-block-start: 1.5vh;
+    border-radius: 10px;
+
+  }
+  
+  .main-container .mails-conatiner ul {
+    list-style: none;
+    font-size: 1.1rem;
+    padding: 0;
+  }
+ /* //////////////////////////////////////////////////////////////  */
+  .main-container .mails-conatiner ul li section{
+    padding: 7px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 10% 20% 60% 10%;
+    /* border: 1px solid rgb(205, 201, 245); */
+    cursor: pointer;
+  }
+  
+  .main-container .mails-conatiner .unread {
+    background-color: #f7f5f5;
+  }
+  .main-container .mails-conatiner .read {
+    background-color: #ffffff;
+  }
+  
+  /* .main-container .mails-conatiner ul div button{
+    cursor: pointer;
+  } */
+    
+  /* } */
+  .main-container .mails-conatiner ul span {
+    position: absolute;
+    font-size: 0.7rem;
+    left: 80%;
+    margin-block-end: 25px;
+    align-self: center;
+    cursor: pointer;
+    justify-self: right;
+  }
+  
+  .main-container .mails-conatiner ul li section div {
+    /* border: 1px solid rgb(85, 176, 159); */
+    display: flex;
+    align-items: center;
+  }
+  .main-container .mails-conatiner ul li section div input{
+    /* border: 1px solid rgb(85, 176, 159); */
+    /* display: flex; */
+    /* align-items: center; */
+    cursor: pointer;
+  }
+  
+  .main-container .mails-conatiner ul li section div>* {
+    margin: 0;
+  }
+  
+  .main-container .mails-conatiner ul li section .content {
+    /* width: 100%; */
+    justify-self: left;
+  }
+  
+  .main-container .mails-conatiner ul li section .sender {
+    /* width: 100%; */
+    justify-self: left;
+  }
