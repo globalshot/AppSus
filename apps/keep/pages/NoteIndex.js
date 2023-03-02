@@ -14,6 +14,7 @@ export default {
             <NoteList 
                 :notes="filteredNotes"
                 @done="todoDone"
+                @pin="pinned"
                 /><!--:notes="filteredNotes"-->
             <!-- <pre>{{ test }}</pre> -->
         </section>
@@ -31,6 +32,10 @@ export default {
         },
         setFilterBy(filterBy){
             this.filterBy = filterBy
+        },
+        pinned(note){
+            note.isPinned = !note.isPinned
+            noteService.save(note)
         }
     },
     components:{

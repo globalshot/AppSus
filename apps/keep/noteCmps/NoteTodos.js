@@ -4,11 +4,11 @@ export default {
     template:`
         <div>
             <h2>{{ info.title }}</h2>
-              <ul>
+              <ul class="todo-in-list">
                 <li v-for="eachTodo in info.todo">
                   {{ eachTodo.txt }} -
                   <span v-if="eachTodo.doneAt !== null"> done at {{ date(eachTodo.doneAt) }}</span>
-                  <button :style="{background: 'none', color: 'grey'}" v-else @click="done(eachTodo)">Todo done</button>
+                  <button class="finish-todo" :style="{color: 'grey'}" v-else @click="done(eachTodo)">Todo done</button>
                 </li>
               </ul>
         </div>

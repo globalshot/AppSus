@@ -4,9 +4,19 @@
   padding: 1em;
 }
 
+.router-link-active {
+  text-decoration: underline;
+  color: rgb(255, 255, 255)
+}
+
 @media(max-width: 720px) {
   .app-header {
     background-color: var(--clr3);
     color: var(--secondary-clr2);
+  }
+  
+  .router-link-active {
+    text-decoration: underline;
+    color: rgb(51, 39, 39)
   }
 }

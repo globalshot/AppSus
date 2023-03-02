@@ -11,14 +11,15 @@ export default {
                 <div class="card-options">
                 <button v-for="color in colors" :key="color" :style="{ background: color }" @click="selectColor(color, note)">
                 </button>
-                <button :class="{'pinned': note.isPinned}" @click="note.isPinned = !note.isPinned">pin</button>
+                <!-- <button :class="{'pinned': note.isPinned}" @click="note.isPinned = !note.isPinned">pin</button> -->
+                <button :class="{'pinned': note.isPinned}" @click="pin(note)">pin</button>
                 </div>
             </div>
         </section>
     `,
     data() {
         return {
-            colors: ['black', 'white', 'red', 'green', 'blue'],
+            colors: ['black', 'white', 'red', 'green', 'blue'],//cant use vars sadly
         }
     },
     methods: {
@@ -29,7 +30,10 @@ export default {
             note.style.backgroundColor = color
             // console.log(event.pageX);
             // console.log(event.pageY);
-          }
+        },
+        pin(note){
+            this.$emit('pin', note)
+        }
     },
     components: {
         NotePreview,

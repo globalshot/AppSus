@@ -17,12 +17,12 @@ div.note-card{
     height: max-content;
 
     border-radius: 20px;
-    border: 1px solid grey;
+    border: 1px solid var(--clr3);
 }
 
 div.card-options button{
     border-radius: 50%;
-    border: 1px solid grey;
+    border: 1px solid var(--clr3);
     margin-inline-end: 3px;
     min-height: 20px;
     min-width: 20px;
@@ -30,4 +30,24 @@ div.card-options button{
 
 button.pinned{
     background-color: yellow;
+}
+
+@media(max-width: 1100px){
+    section.note-list{
+        width: 80vw;
+    }
+}
+
+@media(max-width: 720px){
+    section.note-list{
+        width: 92vw;
+    }
+}
+
+@media(max-width: 620px){
+    section.note-list{
+        width: 85%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 }

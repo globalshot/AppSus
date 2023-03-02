@@ -1,0 +1,12 @@
+
+ul.todo-in-list{
+    padding-inline-start: 20px;
+}
+
+button.finish-todo{
+    background: none;
+}
+
+button.finish-todo:hover{
+    background-color: var(--secondary-clr1);
+}
