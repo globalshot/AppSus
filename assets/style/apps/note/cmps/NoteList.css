@@ -15,6 +15,13 @@ div.note-card{
     padding: 5px;
     height: max-content;
 
-    color: white;
     border-radius: 20px;
+}
+
+div.card-options button{
+    border-radius: 50%;
+    border: 1px solid grey;
+    margin-inline-end: 3px;
+    min-height: 20px;
+    min-width: 20px;
 }
