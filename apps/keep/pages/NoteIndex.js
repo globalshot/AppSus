@@ -14,7 +14,7 @@ export default {
             <NoteList 
                 :notes="filteredNotes"
                 @done="todoDone"
-                />
+                /><!--:notes="filteredNotes"-->
             <!-- <pre>{{ test }}</pre> -->
         </section>
     `,
@@ -43,14 +43,26 @@ export default {
             this.notes = notes;})
     },
     computed: {
-        filteredNotes() {
+        filteredNotes()  {
             // const regex = new RegExp(this.filterBy.txt, 'i')
             // return this.notes.filter(note => (regex.test(note.info.txt) || regex.test(note.info.title)))
             const regex1 = new RegExp(this.filterBy.txt, 'i')
             const regex2 = new RegExp(this.filterBy.type, 'i')
-            return this.notes.filter(note => (
-                            (regex1.test(note.info.txt) || regex1.test(note.info.title))
-                            && (this.filterBy.type===''||regex2.test(note.type))))
+            // return this.notes.filter(note => (
+            //                 (regex1.test(note.info.txt) || regex1.test(note.info.title))
+            //                 && (this.filterBy.type===''||regex2.test(note.type))))
+            let arr = this.notes.filter(note => (
+                (regex1.test(note.info.txt) || regex1.test(note.info.title))
+                && (this.filterBy.type===''||regex2.test(note.type))))
+            let pinnedArr = arr.filter(note => note.isPinned)
+            let notPinnedArr = arr.filter(note => (!note.isPinned))
+            return pinnedArr.concat(notPinnedArr)
         }
       },
+    //   pinnedOrder() {
+    //     let arr = filteredNotes()
+    //     let pinnedArr = arr.filter(note => note.isPinned)
+    //     let notPinnedArr = arr.filter(note => (!note.isPinned))
+    //     return pinnedArr.concat(notPinnedArr)
+    //   }
 }

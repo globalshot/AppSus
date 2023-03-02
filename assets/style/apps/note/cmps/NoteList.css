@@ -27,3 +27,7 @@ div.card-options button{
     min-height: 20px;
     min-width: 20px;
 }
+
+button.pinned{
+    background-color: yellow;
+}

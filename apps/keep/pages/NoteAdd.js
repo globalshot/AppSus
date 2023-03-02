@@ -39,6 +39,7 @@ export default {//idea, when he makes the note, you can preview it to him
             let note = {}
             note.type = this.type
             note.style = {backgroundColor: 'grey'}
+            note.isPinned = false
             
             if (this.type === 'NoteTxt') note.info = {txt: this.info}
             else{

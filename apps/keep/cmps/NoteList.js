@@ -11,6 +11,7 @@ export default {
                 <div class="card-options">
                 <button v-for="color in colors" :key="color" :style="{ background: color }" @click="selectColor(color, note)">
                 </button>
+                <button :class="{'pinned': note.isPinned}" @click="note.isPinned = !note.isPinned">pin</button>
                 </div>
             </div>
         </section>
