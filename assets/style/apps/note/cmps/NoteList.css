@@ -1,0 +1,20 @@
+
+section.note-list{
+    width: 60vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-flow: dense;
+}
+
+div.note-card{
+    padding: 5px;
+    height: max-content;
+
+    color: white;
+    border-radius: 20px;
+}

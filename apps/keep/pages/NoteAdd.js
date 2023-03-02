@@ -20,7 +20,7 @@ export default {//idea, when he makes the note, you can preview it to him
             </label>
                 <button>Save</button>
         </form>
-        <button v-if="type === 'NoteTodos'" @click="saveTodo">Save todo</button>
+        <!-- <button v-if="type === 'NoteTodos'" @click="saveTodo">Save todo</button> -->
     `,
     data(){
         return{
@@ -28,17 +28,14 @@ export default {//idea, when he makes the note, you can preview it to him
             title: '',
             type: 'NoteTxt',
             placeholderText: 'Enter your text here',
-            todos: [],
         }
     },
     methods:{
-        saveTodo(){
-            this.todos.push({txt: this.info, doneAt: null})
-            this.info = ''
-        },
+        // saveTodo(){
+        //     this.todos.push({txt: this.info, doneAt: null})//separate by ,
+        //     this.info = ''
+        // },
         save(){
-            // console.log(this.info);
-            // console.log(this.type);
             let note = {}
             note.type = this.type
             
@@ -46,7 +43,12 @@ export default {//idea, when he makes the note, you can preview it to him
             else{
                 
                 if (this.type === 'NoteTodos') {
-                    note.info = {todo: this.todos, title: this.title}
+                    const todos = this.info.split(',')
+                    const todosArr = []
+                    todos.forEach(txt => {
+                        todosArr.push({txt, doneAt: null})
+                    })
+                    note.info = {todo: todosArr, title: this.title}
                 }
                 else{//if that is a video or image
                     note.info = {title: this.title}
@@ -57,7 +59,6 @@ export default {//idea, when he makes the note, you can preview it to him
             }
             noteService.save(note)
                 .then(empty => this.$router.push('/note'))
-            // console.log(note);
         },
         typeChange(noteType){
             this.type = noteType
