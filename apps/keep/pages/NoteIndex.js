@@ -48,7 +48,9 @@ export default {
             // return this.notes.filter(note => (regex.test(note.info.txt) || regex.test(note.info.title)))
             const regex1 = new RegExp(this.filterBy.txt, 'i')
             const regex2 = new RegExp(this.filterBy.type, 'i')
-            return this.notes.filter(note => ((regex1.test(note.info.txt) || regex1.test(note.info.title)) && (this.filterBy.type===''||regex2.test(note.type))))
+            return this.notes.filter(note => (
+                            (regex1.test(note.info.txt) || regex1.test(note.info.title))
+                            && (this.filterBy.type===''||regex2.test(note.type))))
         }
       },
 }
