@@ -1,6 +1,6 @@
 import { noteService } from "../services/note-service.js";
 
-export default {
+export default {//idea, when he makes the note, you can preview it to him
     template: `
         <form @submit.prevent="save">
             <input type="text" v-model="info" :placeholder="placeholderText">
@@ -20,6 +20,7 @@ export default {
             </label>
                 <button>Save</button>
         </form>
+        <button v-if="type === 'NoteTodos'" @click="saveTodo">Save todo</button>
     `,
     data(){
         return{
@@ -27,9 +28,14 @@ export default {
             title: '',
             type: 'NoteTxt',
             placeholderText: 'Enter your text here',
+            todos: [],
         }
     },
     methods:{
+        saveTodo(){
+            this.todos.push({txt: this.info, doneAt: null})
+            this.info = ''
+        },
         save(){
             // console.log(this.info);
             // console.log(this.type);
@@ -40,9 +46,7 @@ export default {
             else{
                 
                 if (this.type === 'NoteTodos') {
-                    note.info = {todo: [], title: this.title}
-                    let todo = {txt: this.info, doneAt: null}
-                    note.info.todo.push(todo)
+                    note.info = {todo: this.todos, title: this.title}
                 }
                 else{//if that is a video or image
                     note.info = {title: this.title}
@@ -52,7 +56,7 @@ export default {
                 }
             }
             noteService.save(note)
-                .then(this.$router.push('/note'))
+                .then(empty => this.$router.push('/note'))
             // console.log(note);
         },
         typeChange(noteType){

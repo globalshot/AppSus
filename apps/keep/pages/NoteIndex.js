@@ -1,5 +1,6 @@
 import { noteService } from "../services/note-service.js"
-import NotePreview from "../cmps/NotePreview.js"
+import NoteList from "../cmps/NoteList.js"
+
 
 export default {
 	template: `
@@ -7,10 +8,11 @@ export default {
             <router-link to="/note/add">Make new note</router-link>
         </section>
 
-        <section class="note-list"><!--supopse to be NodeList and not just jump to preview-->
-            <div v-for="note in notes" :key="note.id">
-                <NotePreview :note="note"/>
-            </div>
+        <section class="notes-index"><!--suppose to be NodeList and not just jump to preview-->
+            <NoteList 
+                :notes="notes"
+                @done="todoDone"
+                />
             <!-- <pre>{{ test }}</pre> -->
         </section>
     `,
@@ -20,13 +22,20 @@ export default {
             notes: [],
         }
     },
+    methods:{
+        todoDone(todo, note){
+            todo.doneAt = Date.now()
+            // console.log(todo);
+            // console.log(note.id);
+            noteService.save(note)
+
+        }
+    },
     components:{
         noteService,
-        NotePreview,
+        NoteList,
     },
     created(){
-        // noteService.query()
-        //     .then(notes => this.test = notes)
         noteService.query().then((notes) => {
             this.notes = notes;})
     },
@@ -41,11 +50,4 @@ export default {
           this.$forceUpdate();
         },
     }
-    // beforeRouteEnter(to, from, next) {
-    //     noteService.query()
-    //       .then(notes => next(vm => {
-    //         vm.test = notes
-    //       }))
-    //   },
-    
 }

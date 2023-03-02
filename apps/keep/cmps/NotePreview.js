@@ -6,9 +6,15 @@ export default {
     props: ['note'],
     template:`
         <article>
-            <component :is="note.type" :info="note.info"></component>
+            <component @done="passDone" :is="note.type" :info="note.info"></component>
         </article>
     `,
+    methods:{
+        passDone(todo){
+            let note = this.note
+            this.$emit('done', todo, note)
+        }
+    },
     data(){
         return{
 
