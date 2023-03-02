@@ -6,11 +6,17 @@ export default {
                 @input="filter"
                 placeHolder="Search text"
                 type="text" />
+                <select v-model="filterBy.type" @change="filter">
+                    <option value="">All</option>
+                    <option value="NoteTxt">Note text</option>
+                    <option value="NoteTodos">Note todos</option>
+                    <option value="NoteImg">Note image</option>
+                </select>
         </section>
     `,
     data(){
         return{
-            filterBy: { txt: '', maxPrice: 0},
+            filterBy: { txt: '', type: ''},
         }
     },
     methods: {

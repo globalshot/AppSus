@@ -1,6 +1,7 @@
 
 section.note-list{
     width: 60vw;
+    margin-block-start: 50px;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -16,6 +17,7 @@ div.note-card{
     height: max-content;
 
     border-radius: 20px;
+    border: 1px solid grey;
 }
 
 div.card-options button{

@@ -17,12 +17,18 @@ export const noteService = {
 
 function query(filterBy = {}) {
     return storageService.query(NOTE_KEY).then((notes) => {
-      if (filterBy.txt) {//mmmmm, filter, mmmmm
-        const regex = new RegExp(filterBy.txt, 'i')
-        notes = notes.filter((note) => regex.test(note.info.txt))
-        console.log('regex',regex);
-        console.log('notes',notes);
-      }
+      // if (filterBy.txt) {//mmmmm, filter, mmmmm
+      //   const regex = new RegExp(filterBy.txt, 'i')
+      //   notes = notes.filter((note) => regex.test(note.info.txt))
+      //   console.log('regex',regex);
+      //   console.log('notes',notes);
+      // }
+      // if (filterBy.type !== '') {
+      //   const regex = new RegExp(filterBy.type, 'i')
+      //   notes = notes.filter((note) => regex.test(note.type))
+      //   console.log('regex',regex);
+      //   console.log('notes',notes);
+      // }
       return notes
     })
   }
