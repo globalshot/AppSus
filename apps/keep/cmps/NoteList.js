@@ -37,7 +37,7 @@ export default {
             this.$emit('delete', note)
         },
         changeColor(note){
-            this.$emit('changeTest', note)
+            this.$emit('changeColor', note)
         }
 
     },

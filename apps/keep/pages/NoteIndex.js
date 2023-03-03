@@ -19,7 +19,7 @@ export default {
                 @dupe="dupeCard"
                 @delete="deleteNote"
 
-                @changeTest="changeNote"
+                @changeColor="changeNote"
                 /><!--:notes="filteredNotes"-->
             <!-- <pre>{{ test }}</pre> -->
         </section>
