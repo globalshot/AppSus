@@ -18,7 +18,7 @@ export default {
                 @pin="pinned"
                 @dupe="dupeCard"
                 @delete="deleteNote"
-                @colorSwap="changeNote">
+                @colorSwap="changeNote"/>
         </section>
             <BgcChangeColor v-if="currNote !== null" :note="currNote" @color="colorChange"/>
     `,
