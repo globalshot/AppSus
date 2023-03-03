@@ -23,7 +23,7 @@ div.note-card{
 
 
 section.note-list{
-    width: 70vw;
+    width: 80vw;
     margin-block-start: 50px;
     position: relative;
     left: 50%;
@@ -63,18 +63,9 @@ button.pinned{
 }
 
 @media(max-width: 1300px){
-    section.note-list{
-        width: 80vw;
-    }
     .note-list ul{
         column-count: 3;
         column-gap: 5px;
-    }
-}
-
-@media(max-width: 1100px){
-    section.note-list{
-        width: 80vw;
     }
 }
 

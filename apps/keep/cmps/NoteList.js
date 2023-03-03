@@ -7,14 +7,12 @@ export default {
             <ul>
             <li v-for="note in notes" :key="note.id" class="note-card" :style="{ background: note.style.backgroundColor }">
                 <NotePreview :note="note" @done="passDone" />
-                <!--idk if i need add form for the images tbh, we will see-->
-                <!-- for now just color -->
                 <div class="card-options">
-                <button class="card-colors" v-for="color in colors" :key="color" :style="{ background: color }" @click="selectColor(color, note)">
-                </button>
+                <button @click="changeColor(note)">color change</button>
                 <button :class="{'pinned': note.isPinned}" @click="pin(note)">pin</button>
                 <button @click="dupe(note)">dupe me</button>
                 <button @click="noteRemove(note)">delete me</button>
+                <!--testing-->
                 </div>
             </li>
             </ul>
@@ -29,12 +27,6 @@ export default {
         passDone(todo, note) {
             this.$emit('done', todo, note)
         },
-        selectColor(color, note) {//make it be shown only after the color choose selected
-            // note.style.backgroundColor = color
-            this.$emit('colorChange', note, color)
-            // console.log(event.pageX);
-            // console.log(event.pageY);
-        },
         pin(note){
             this.$emit('pin', note)
         },
@@ -43,7 +35,11 @@ export default {
         },
         noteRemove(note){
             this.$emit('delete', note)
+        },
+        changeColor(note){
+            this.$emit('changeTest', note)
         }
+
     },
     components: {
         NotePreview,

@@ -1,6 +1,7 @@
 import { noteService } from "../services/note-service.js"
 import NoteList from "../cmps/NoteList.js"
 import NoteFilter from "../cmps/NoteFilter.js"
+import changeColor from "../cmps/changeColor.js"
 
 
 export default {
@@ -15,17 +16,20 @@ export default {
                 :notes="filteredNotes"
                 @done="todoDone"
                 @pin="pinned"
-                @colorChange="colorChange"
                 @dupe="dupeCard"
                 @delete="deleteNote"
+
+                @changeTest="changeNote"
                 /><!--:notes="filteredNotes"-->
             <!-- <pre>{{ test }}</pre> -->
         </section>
+        <changeColor v-if="currNote !== null" :note="currNote" @color="colorChange"/>
     `,
     data(){
         return{
             notes: [],
-            filterBy: {}
+            filterBy: {},
+            currNote: null,
         }
     },
     methods:{
@@ -41,6 +45,7 @@ export default {
             noteService.save(note)
         },
         colorChange(note, color){
+            this.currNote = null
             note.style.backgroundColor = color
             noteService.save(note)
         },
@@ -53,12 +58,17 @@ export default {
             noteService.remove(note.id)
             .then(ah => noteService.query().then((notes) => {
                 this.notes = notes;}))
+        },
+
+        changeNote(note){
+            this.currNote = note
         }
     },
     components:{
         noteService,
         NoteList,
         NoteFilter,
+        changeColor,
     },
     created(){
         noteService.query().then((notes) => {
