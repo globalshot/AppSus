@@ -1,4 +1,4 @@
-
+/* 
 section.note-list{
     width: 60vw;
     margin-block-start: 50px;
@@ -15,7 +15,34 @@ section.note-list{
 div.note-card{
     padding: 5px;
     height: max-content;
+    
+    border-radius: 20px;
+    border: 1px solid var(--clr3);
+}
+*/
 
+
+section.note-list{
+    width: 70vw;
+    margin-block-start: 50px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+}
+ 
+.note-list ul {
+    column-count: 4;
+    list-style-type: none;
+    column-gap: 0px;
+    padding-inline-start: 0;
+}
+
+.note-list ul li.note-card {
+    break-inside: avoid;
+    padding: 5px;
+    border-image: initial;
+    margin: 0 10px 10px;
     border-radius: 20px;
     border: 1px solid var(--clr3);
 }
@@ -35,6 +62,16 @@ button.pinned{
     background-color: yellow;
 }
 
+@media(max-width: 1300px){
+    section.note-list{
+        width: 80vw;
+    }
+    .note-list ul{
+        column-count: 3;
+        column-gap: 5px;
+    }
+}
+
 @media(max-width: 1100px){
     section.note-list{
         width: 80vw;
@@ -50,7 +87,10 @@ button.pinned{
 @media(max-width: 620px){
     section.note-list{
         width: 85%;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    }
+    .note-list ul{
+        column-count: 2;
+        column-gap: 5px;
     }
 }
+

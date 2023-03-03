@@ -1,6 +1,7 @@
 
 ul.todo-in-list{
     padding-inline-start: 20px;
+    column-count: 1;
 }
 
 button.finish-todo{

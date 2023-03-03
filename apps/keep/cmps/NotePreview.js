@@ -6,9 +6,9 @@ import NoteVideo from '../noteCmps/NoteVideo.js'
 export default {
     props: ['note'],
     template:`
-        <article>
-            <component @done="passDone" :is="note.type" :info="note.info"></component>
-        </article>
+                <article>
+                    <component @done="passDone" :is="note.type" :info="note.info"></component>
+                </article>
     `,
     methods:{
         passDone(todo){

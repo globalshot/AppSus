@@ -4,7 +4,8 @@ export default {
     props: ['notes'],
     template: `
         <section class="note-list">
-            <div v-for="note in notes" :key="note.id" class="note-card" :style="{ background: note.style.backgroundColor }">
+            <ul>
+            <li v-for="note in notes" :key="note.id" class="note-card" :style="{ background: note.style.backgroundColor }">
                 <NotePreview :note="note" @done="passDone" />
                 <!--idk if i need add form for the images tbh, we will see-->
                 <!-- for now just color -->
@@ -15,7 +16,8 @@ export default {
                 <button :class="{'pinned': note.isPinned}" @click="pin(note)">pin</button>
                 <button @click="dupe(note)">dupe me</button>
                 </div>
-            </div>
+            </li>
+            </ul>
         </section>
     `,
     data() {
@@ -43,4 +45,4 @@ export default {
     components: {
         NotePreview,
     },
-}
+}// important, look at leon ui, they are using ul with colums,
