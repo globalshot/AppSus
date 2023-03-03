@@ -23,7 +23,7 @@ export default {
                 /><!--:notes="filteredNotes"-->
             <!-- <pre>{{ test }}</pre> -->
         </section>
-        <changeColor v-if="currNote !== null" :note="currNote" @color="colorChange"/>
+        <BgcChangeColor v-if="currNote !== null" :note="currNote" @color="colorChange"/>
     `,
     data(){
         return{
