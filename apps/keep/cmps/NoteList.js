@@ -12,9 +12,9 @@ export default {
                 <div class="card-options">
                 <button class="card-colors" v-for="color in colors" :key="color" :style="{ background: color }" @click="selectColor(color, note)">
                 </button>
-                <!-- <button :class="{'pinned': note.isPinned}" @click="note.isPinned = !note.isPinned">pin</button> -->
                 <button :class="{'pinned': note.isPinned}" @click="pin(note)">pin</button>
                 <button @click="dupe(note)">dupe me</button>
+                <button @click="noteRemove(note)">delete me</button>
                 </div>
             </li>
             </ul>
@@ -22,7 +22,7 @@ export default {
     `,
     data() {
         return {
-            colors: ['black', 'white', 'red', 'green', 'blue'],//cant use vars sadly
+            colors: ['black', 'white', 'red', 'green', 'blue', '#9b9b9b'],//cant use vars sadly
         }
     },
     methods: {
@@ -40,9 +40,12 @@ export default {
         },
         dupe(note){//if after, then use splice to add, if at the end, then just push
             this.$emit('dupe', note)
+        },
+        noteRemove(note){
+            this.$emit('delete', note)
         }
     },
     components: {
         NotePreview,
     },
-}// important, look at leon ui, they are using ul with colums,
+}

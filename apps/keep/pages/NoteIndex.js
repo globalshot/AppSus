@@ -17,6 +17,7 @@ export default {
                 @pin="pinned"
                 @colorChange="colorChange"
                 @dupe="dupeCard"
+                @delete="deleteNote"
                 /><!--:notes="filteredNotes"-->
             <!-- <pre>{{ test }}</pre> -->
         </section>
@@ -45,6 +46,11 @@ export default {
         },
         dupeCard(note){
             noteService.forcePush(note)
+            .then(ah => noteService.query().then((notes) => {
+                this.notes = notes;}))
+        },
+        deleteNote(note){
+            noteService.remove(note.id)
             .then(ah => noteService.query().then((notes) => {
                 this.notes = notes;}))
         }
