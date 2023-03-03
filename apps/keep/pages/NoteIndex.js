@@ -1,7 +1,7 @@
 import { noteService } from "../services/note-service.js"
 import NoteList from "../cmps/NoteList.js"
 import NoteFilter from "../cmps/NoteFilter.js"
-import changeColor from "../cmps/changeColor.js"
+import BgcChangeColor from "../cmps/BgcChangeColor.js"
 
 
 export default {
@@ -68,7 +68,7 @@ export default {
         noteService,
         NoteList,
         NoteFilter,
-        changeColor,
+        BgcChangeColor,
     },
     created(){
         noteService.query().then((notes) => {
