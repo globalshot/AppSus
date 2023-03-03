@@ -10,22 +10,3 @@ section.make-note{
     border-radius: 20px;
     align-self: center;
 }
-
-div.color-bar{
-    border: 2px solid var(--secondary-clr1);
-    position: fixed;
-    top: 30px;
-    right: 30px;
-}
-
-div.color-bar button{
-    border: 2px solid var(--secondary-clr2);
-}
-
-@media(max-width: 560px)
-{
-    div.color-bar{
-        top: 12px;
-        right: 12px;
-    }
-}

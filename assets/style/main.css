@@ -15,6 +15,8 @@
 
 /* Note Components */
 @import 'apps/note/cmps/NoteList.css';
+@import 'apps/note/cmps/NoteFilter.css';
+@import 'apps/note/cmps/BgcChangeColor.css';
 
 @import 'apps/note/pages/NoteAdd.css';
 

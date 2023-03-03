@@ -1,12 +1,12 @@
 export default {
     template:`
-        <section>
+        <section class="note-filter">
             <input 
                 v-model="filterBy.txt"
                 @input="filter"
                 placeHolder="Search title"
                 type="text" />
-                <select v-model="filterBy.type" @change="filter">
+                <select class="type-options" v-model="filterBy.type" @change="filter">
                     <option value="">All</option>
                     <option value="NoteTxt">Note text</option>
                     <option value="NoteTodos">Note todos</option>
