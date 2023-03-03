@@ -2,21 +2,23 @@ import { noteService } from "../services/note-service.js";
 
 export default {//idea, when he makes the note, you can preview it to him
     template: `
-        <form @submit.prevent="save">
-            <input type="text" v-model="info" :placeholder="placeholderText">
-            <input v-if="type !== 'NoteTxt'" type="text" v-model="title" placeholder="Enter the title">
+        <form @submit.prevent="save" class="note-add">
+            <input class="input-txt" type="text" v-model="info" :placeholder="placeholderText">
+            <br>
+            <input class="input-txt" v-if="type !== 'NoteTxt'" type="text" v-model="title" placeholder="Enter the title">
+            <br>    
             <label><!-- should i make for each label, to color the selected, mmmm-->
-                <input type="button" @click="typeChange('NoteTxt')">
                 Text
+                <input class="input-btn" type="button" @click="typeChange('NoteTxt')">
 
-                <input type="button" @click="typeChange('NoteImg')">
                 Image
+                <input class="input-btn" type="button" @click="typeChange('NoteImg')">
 
-                <input type="button" @click="typeChange('NoteTodos')">
                 Todos
+                <input class="input-btn" type="button" @click="typeChange('NoteTodos')">
 
-                <input type="button" @click="typeChange('NoteVideo')">
                 Video
+                <input class="input-btn" type="button" @click="typeChange('NoteVideo')">
             </label>
                 <button>Save</button>
         </form>
@@ -38,7 +40,7 @@ export default {//idea, when he makes the note, you can preview it to him
         save(){
             let note = {}
             note.type = this.type
-            note.style = {backgroundColor: 'var(--clr3)'}
+            note.style = {backgroundColor: 'var(--note-clr6)'}
             note.isPinned = false
             
             if (this.type === 'NoteTxt') note.info = {txt: this.info}

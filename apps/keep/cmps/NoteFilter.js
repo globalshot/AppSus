@@ -4,7 +4,7 @@ export default {
             <input 
                 v-model="filterBy.txt"
                 @input="filter"
-                placeHolder="Search text"
+                placeHolder="Search title"
                 type="text" />
                 <select v-model="filterBy.type" @change="filter">
                     <option value="">All</option>

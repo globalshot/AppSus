@@ -86,7 +86,7 @@ function test(){
         { 
           id: 'n103', 
           type: 'NoteTodos', 
-          isPinned: false, 
+          isPinned: true, 
           style: { 
             backgroundColor: 'var(--clr3)' 
           }, 

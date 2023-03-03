@@ -8,7 +8,7 @@ export default {
                 <li v-for="eachTodo in info.todo">
                   {{ eachTodo.txt }} -
                   <span v-if="eachTodo.doneAt !== null"> done at {{ date(eachTodo.doneAt) }}</span>
-                  <button class="finish-todo" :style="{color: 'grey'}" v-else @click="done(eachTodo)">Todo done</button>
+                  <button class="finish-todo" :style="{color: 'grey'}" v-else @click="done(eachTodo)">Done?</button>
                 </li>
               </ul>
         </div>

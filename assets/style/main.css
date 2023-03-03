@@ -16,6 +16,8 @@
 /* Note Components */
 @import 'apps/note/cmps/NoteList.css';
 
+@import 'apps/note/pages/NoteAdd.css';
+
 @import 'apps/note/noteCmps/NoteTodos.css';
 
 /* Book Components */

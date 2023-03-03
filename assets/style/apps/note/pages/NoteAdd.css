@@ -1,0 +1,14 @@
+
+form.note-add{
+    padding: 5px;
+}
+
+input.input-txt{
+    margin: 15px;
+}
+
+input.input-btn{
+    width: 30px;
+    height: 30px;
+    margin-inline-end: 5px;
+}

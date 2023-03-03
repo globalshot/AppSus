@@ -23,7 +23,9 @@ export default {
                 /><!--:notes="filteredNotes"-->
             <!-- <pre>{{ test }}</pre> -->
         </section>
-        <BgcChangeColor v-if="currNote !== null" :note="currNote" @color="colorChange"/>
+        <div class="color-bar">
+            <BgcChangeColor v-if="currNote !== null" :note="currNote" @color="colorChange"/>
+        </div>
     `,
     data(){
         return{
@@ -61,7 +63,8 @@ export default {
         },
 
         changeNote(note){
-            this.currNote = note
+            if (this.currNote === note) this.currNote = null
+            else this.currNote = note
         }
     },
     components:{

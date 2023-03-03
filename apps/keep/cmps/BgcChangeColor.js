@@ -9,7 +9,8 @@ export default {
     `,
     data() {
         return {
-            colors: ['black', 'white', 'red', 'green', 'blue', '#9b9b9b'],//cant use vars sadly
+            // colors: ['black', 'white', 'red', 'green', 'blue', '#9b9b9b'],//cant use vars sadly
+            colors: ['var(--note-clr1)', 'var(--note-clr2)', 'var(--note-clr3)', 'var(--note-clr4)', 'var(--note-clr5)', 'var(--note-clr6)'],//cant use vars sadly
         }
     },
     methods:{
