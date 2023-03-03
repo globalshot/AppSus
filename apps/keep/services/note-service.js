@@ -4,7 +4,7 @@ import { utilService } from '../../../services/util.service.js'
 const NOTE_KEY = 'noteDB'
 
 // _tester()//remove after making normal data base
-// _createNotes()
+_createNotes()
 
 export const noteService = {
     query,
@@ -49,48 +49,55 @@ function forcePush(note) {//still tested
     
 }
 
-// function _createNotes() {
-//     let notes = utilService.loadFromStorage(NOTE_KEY)
-//     if (!notes || !notes.length) {
-//     utilService.saveToStorage(NOTE_KEY, notes)
-//   }
-// }
+function _createNotes() {
+    let notes = utilService.loadFromStorage(NOTE_KEY)
+    if (!notes || !notes.length) {
+      notes = test()
+    utilService.saveToStorage(NOTE_KEY, notes)
+  }
+}
 
 function test(){
-    const notes = [ 
+    return [ 
         { 
           id: 'n101', 
           createdAt: 1112222, 
           type: 'NoteTxt', 
           isPinned: true, 
           style: { 
-            backgroundColor: '#00d' 
+            backgroundColor: 'var(--clr3)' 
           }, 
           info: { 
-            txt: 'Fullstack Me Baby!' 
+            txt: 'Welcome to keep' 
           } 
         }, 
-        { 
-          id: 'n102', 
-          type: 'NoteImg', 
-          isPinned: false, 
-          info: { 
-            url: 'http://some-img/me', 
-            title: 'Bobi and Me' 
-          }, 
-          style: { 
-            backgroundColor: '#00d' 
-          } 
-        }, 
+        // { 
+        //   id: 'n102', 
+        //   type: 'NoteImg', 
+        //   isPinned: false, 
+        //   info: { 
+        //     url: 'http://some-img/me', 
+        //     title: 'Bobi and Me' 
+        //   }, 
+        //   style: { 
+        //     backgroundColor: '#00d' 
+        //   } 
+        // }, 
         { 
           id: 'n103', 
           type: 'NoteTodos', 
           isPinned: false, 
+          style: { 
+            backgroundColor: 'var(--clr3)' 
+          }, 
           info: { 
-            title: 'Get my stuff together', 
-            todos: [ 
-              { txt: 'Driving license', doneAt: null }, 
-              { txt: 'Coding power', doneAt: 187111111 } 
+            title: 'Steps to make notes', 
+            todo: [ 
+              { txt: 'Think of note', doneAt: null }, 
+              // { txt: 'Coding power', doneAt: 187111111 } 
+              { txt: 'Click "Make new note"', doneAt: null },
+              { txt: 'Choose the type of the note', doneAt: null },
+              { txt: 'Follow the text inside the box', doneAt: null },
             ] 
           } 
         } 
