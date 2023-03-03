@@ -7,7 +7,7 @@ export default {//idea, when he makes the note, you can preview it to him
             <br>
             <input class="input-txt" v-if="type !== 'NoteTxt'" type="text" v-model="title" placeholder="Enter the title">
             <br>    
-            <label><!-- should i make for each label, to color the selected, mmmm-->
+            <label>
                 Text
                 <input class="input-btn" type="button" @click="typeChange('NoteTxt')">
 
@@ -22,7 +22,6 @@ export default {//idea, when he makes the note, you can preview it to him
             </label>
                 <button>Save</button>
         </form>
-        <!-- <button v-if="type === 'NoteTodos'" @click="saveTodo">Save todo</button> -->
     `,
     data(){
         return{
@@ -33,10 +32,6 @@ export default {//idea, when he makes the note, you can preview it to him
         }
     },
     methods:{
-        // saveTodo(){
-        //     this.todos.push({txt: this.info, doneAt: null})//separate by ,
-        //     this.info = ''
-        // },
         save(){
             let note = {}
             note.type = this.type

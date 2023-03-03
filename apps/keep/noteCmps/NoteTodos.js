@@ -16,15 +16,14 @@ export default {
     methods:{
       done(todo){
         this.$emit('done', todo)
-        // todo.doneAt = new Date()
       },
       date(dateNumber){
         const now = new Date(dateNumber)
         const year = now.getFullYear()
-        const month = (now.getMonth() + 1).toString().padStart(2, '0') // Add leading zero if month is less than 10
-        const day = now.getDate().toString().padStart(2, '0') // Add leading zero if day is less than 10
-        const hour = now.getHours().toString().padStart(2, '0') // Add leading zero if hour is less than 10
-        const minutes = now.getMinutes().toString().padStart(2, '0') // Add leading zero if minutes is less than 10
+        const month = (now.getMonth() + 1).toString().padStart(2, '0') 
+        const day = now.getDate().toString().padStart(2, '0') 
+        const hour = now.getHours().toString().padStart(2, '0') 
+        const minutes = now.getMinutes().toString().padStart(2, '0') 
 
         return `${year}-${month}-${day} ${hour}:${minutes}`
       }

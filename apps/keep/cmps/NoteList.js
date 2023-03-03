@@ -12,16 +12,13 @@ export default {
                 <button :class="{'pinned': note.isPinned}" @click="pin(note)">pin</button>
                 <button @click="dupe(note)">dupe me</button>
                 <button @click="noteRemove(note)">delete me</button>
-                <!--testing-->
                 </div>
             </li>
             </ul>
         </section>
     `,
     data() {
-        return {
-            colors: ['black', 'white', 'red', 'green', 'blue', '#9b9b9b'],//cant use vars sadly
-        }
+        return {        }
     },
     methods: {
         passDone(todo, note) {
@@ -30,7 +27,7 @@ export default {
         pin(note){
             this.$emit('pin', note)
         },
-        dupe(note){//if after, then use splice to add, if at the end, then just push
+        dupe(note){
             this.$emit('dupe', note)
         },
         noteRemove(note){

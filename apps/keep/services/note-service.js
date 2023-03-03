@@ -3,7 +3,6 @@ import { utilService } from '../../../services/util.service.js'
 
 const NOTE_KEY = 'noteDB'
 
-// _tester()//remove after making normal data base
 _createNotes()
 
 export const noteService = {
@@ -37,7 +36,7 @@ function save(note) {//update or save
     }
 }
 
-function forcePush(note) {//still tested
+function forcePush(note) {
     let newNote = JSON.parse(JSON.stringify(note))
     newNote.id = utilService.makeId(6)
     return storageService.query(NOTE_KEY)
