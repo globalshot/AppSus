@@ -1,25 +1,22 @@
 export default {
     template: `
-<form class="search-container" @submit.prevent="filterbytxt">
-    <input type="search" placeholder="Search Mail..." v-model="filtertxt"/>
-    <button>🔍</button>
-    <select onChange={handleReadChange}>
-        <option value={''}>All</option>
-        <option value={'read'}>Read</option>
-        <option value={'unread'}>Unread</option>
-        <option value={'starred'}>Starred</option>
-      </select>
-    </form>
+      <section class="search-container">
+         <form @submit.prevent="filterbytxt" >
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="search" placeholder="Search mail" v-model="filtertxt" />
+         </form>
+      </section>
 `,
     data() {
         return {
-            filtertxt: ''
+            filtertxt: '',
         }
     },
-    computed: {
+    methods: {
         filterbytxt(){
             this.$emit('filtertxts',this.filtertxt)
-        }
-    }
+            this.filtertxt = null
+        },
+    },
 
 }

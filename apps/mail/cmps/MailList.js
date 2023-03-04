@@ -15,12 +15,9 @@ export default {
                         @showdetails="showDetails"
                         @mailSelected="saveAsSelected"
                         @mailStared="mailStared"
+                        @readnread="toggleReadUnread(mail)"
+                        @deletemail="deleteMail(mail.id)"
                         />
-                        <span>
-                            <button @click="toggleReadUnread(mail)">📩</button>
-                            <button @click="deleteMail(mail.id)">🗑️</button>
-                        </span>
-                        <RouterLink :to="'/mail/'+mail.id">Details</RouterLink>
                     </li>
                 </ul>
             </section>  
@@ -32,27 +29,23 @@ export default {
     },
     methods:{
         showDetails(currMailid){
-            Mailservice.get(currMailid)
-            .then(mail => this.mail = mail)
+            this.$emit('showTheDetails',currMailid)
         },
         deleteMail(currMailid){
-            Mailservice.remove(currMailid)
-            .then(() => {
-                const idx = this.mails.findIndex(mail => mail.id === currMailid)
-                this.mails.splice(idx, 1)
-                showSuccessMsg('mail removed')
-            })
+            this.$emit('deletethismail',currMailid)
+            
         },
         toggleReadUnread(mail){
             mail.isRead = (mail.isRead)? false : true
+            Mailservice.save(mail)
         },
         saveAsSelected(mail){
             Mailservice.save(mail)
-                       .then(mail => this.mail = mail)
+                       
         },
         mailStared(mail){
             Mailservice.save(mail)
-                       .then(mail => this.mail = mail)
+                       
         }
     },
     components: {
