@@ -187,10 +187,10 @@ function removeTrashedMail(MailId) {
 function saveTrashedMail(Mail) {
     Mail.id = null
     if (Mail.id) {
-        return storageService.put(MAILS_KEY, Mail)
+        return storageService.put(TRASH_MAILS, Mail)
     } else {
         Mail.removedAt = new Date()
-        return storageService.post(MAILS_KEY,Mail)
+        return storageService.post(TRASH_MAILS, Mail)
     }
 }
 
@@ -224,7 +224,7 @@ function createMail(to, subject, body) {
         isSelected: false,
         isStared: false,
         isImportant: false,
-        sentAt: new Date(dateNumber),
+        sentAt: new Date(),
         removedAt : null,
         from: loggedinUser.email,
         to,
