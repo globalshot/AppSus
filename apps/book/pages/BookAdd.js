@@ -6,7 +6,7 @@ import { googleBookService } from '../services/googleBook-service.js'
 export default {
     template: `
         <section class="search-book">
-            <RouterLink to="/book/edit">Add your book</RouterLink> | 
+            <RouterLink to="/book/edit" class="edit-book">Add your book</RouterLink> | 
             <input type="text" v-model="searchTxt" placeholder="search for existing book">
             <ul class="google-list" v-for="(book, index) in list" v-if="searchTxt && searchTxt !== ''" >
             <!-- <ul v-for="(book, index) in list" v-if="index < 3"> -->

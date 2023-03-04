@@ -3,8 +3,22 @@ ul.book-list{
     display: grid;
     grid-template-columns: repeat( 3, minmax(min-content, 1fr) );
     gap: 10px;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
 }
 ul.book-list li{
     list-style-type: none;
     border: 3px solid grey;
+}
+
+a.edit-book{
+    margin-inline-start: 20px;
+    border: solid 2px var(--clr4);
+    padding: 5px;
+    border-radius: 100px;
+}
+
+ul.google-list{
+    padding-left: 20px;
+    margin-left: 0px;
 }
