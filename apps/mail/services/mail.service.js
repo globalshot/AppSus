@@ -14,7 +14,7 @@ const emails = [{
     isSelected:false,
     isStared:false,
     isImportant:false,
-    sentAt : 1551133930594,
+    sentAt : Date.now(),
     removedAt : null,
     from: 'momo@momo.com',
     to: 'user@appsus.com'
@@ -27,7 +27,7 @@ const emails = [{
     isSelected:false,
     isStared:false,
     isImportant:false,
-    sentAt : 1551133930594,
+    sentAt : Date.now(),
     removedAt : null,
     from: 'AirMoldova@momo.com',
     to: 'user@appsus.com'
@@ -40,7 +40,7 @@ const emails = [{
     isSelected:false,
     isStared:false,
     isImportant:false,
-    sentAt : 1551133930594,
+    sentAt : Date.now(),
     removedAt : null,
     from: 'udemy@momo.com',
     to: 'user@appsus.com'
@@ -53,7 +53,7 @@ const emails = [{
     isSelected:false,
     isStared:false,
     isImportant:false,
-    sentAt : 1551133930594,
+    sentAt : Date.now(),
     removedAt : null,
     from: 'miky@momo.com',
     to: 'user@appsus.com'   
@@ -66,7 +66,7 @@ const emails = [{
     isSelected:false,
     isStared:false,
     isImportant:false,
-    sentAt : 1551133930594,
+    sentAt : Date.now(),
     removedAt : null,
     from: 'ZometSfarim@momo.com',
     to: 'user@appsus.com'
@@ -79,7 +79,7 @@ const emails = [{
     isSelected:false,
     isStared:false,
     isImportant:false,
-    sentAt : 1551133930594,
+    sentAt : Date.now(),
     removedAt : null,
     from: 'google@momo.com',
     to: 'user@appsus.com'
@@ -92,7 +92,7 @@ const emails = [{
     isSelected:false,
     isStared:false,
     isImportant:false,
-    sentAt : 1551133930594,
+    sentAt : Date.now(),
     removedAt : null,
     from: 'beWell@momo.com',
     to: 'user@appsus.com'
@@ -224,7 +224,7 @@ function createMail(to, subject, body) {
         isSelected: false,
         isStared: false,
         isImportant: false,
-        sentAt: new Date(),
+        sentAt: new Date(dateNumber),
         removedAt : null,
         from: loggedinUser.email,
         to,
