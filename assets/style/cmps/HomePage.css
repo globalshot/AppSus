@@ -25,3 +25,9 @@ div.follower{
     transform: translate(-50%, -50%);
     z-index: 0;
 }
+
+@media(max-width: 720px){
+    div.follower{
+        background: radial-gradient(circle at center, rgba(122, 7, 70,0.6) 0%, rgba(122, 7, 70,0.3) 50%, rgba(122, 7, 70,0) 100%);
+    }
+}
