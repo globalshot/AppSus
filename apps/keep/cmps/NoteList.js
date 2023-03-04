@@ -8,10 +8,10 @@ export default {
             <li v-for="note in notes" :key="note.id" class="note-card" :style="{ background: note.style.backgroundColor }">
                 <NotePreview :note="note" @done="passDone" />
                 <div class="card-options">
-                <button @click="changeColor(note)">color change</button>
-                <button :class="{'pinned': note.isPinned}" @click="pin(note)">pin</button>
-                <button @click="dupe(note)">dupe me</button>
-                <button @click="noteRemove(note)">delete me</button>
+                <button @click="changeColor(note)"><i class="fa-solid fa-palette"></i></button>
+                <button :class="{'pinned': note.isPinned}" @click="pin(note)"><i class="fa-solid fa-thumbtack"></i></button>
+                <button @click="dupe(note)"><i class="fa-solid fa-notes-medical"></i></button>
+                <button @click="noteRemove(note)"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
             </li>
             </ul>
